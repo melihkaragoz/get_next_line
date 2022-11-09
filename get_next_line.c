@@ -10,13 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#ifndef BUFFER_SIZE // .h dosyasina eklenecek.
-#define BUFFER_SIZE 42
-#endif
+#include "get_next_line.h"
 
-char	*get_next_str(int fd)
+char	*get_next_line(int fd)
 {
 	int			endl;
 	static char	*str;
