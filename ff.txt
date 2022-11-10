@@ -1,4 +1,1 @@
-abcdefghijklmnoprstuvyz
-bb
-cc
-dd
+abcdef
