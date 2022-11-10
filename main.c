@@ -8,7 +8,5 @@ int	main(void)
 	fd = open("ff.txt",O_RDONLY);
 	line = get_next_line(fd);
 	printf("%s",line);
-	line = get_next_line(fd);
-	printf("%s",line);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_str.c                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaragoz <mkaragoz@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:37:21 by mkaragoz          #+#    #+#             */
-/*   Updated: 2022/11/10 01:57:14 by mkaragoz         ###   ########.fr       */
+/*   Updated: 2022/11/10 03:52:27 by mkaragoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*get_next_line(int fd)
 {
 	int			endl;
+	int			c;
 	static char	*str;
 	char		*tmp_str;
 
@@ -24,8 +25,11 @@ char	*get_next_line(int fd)
 	if (!str || fd < 0)
 		return (0);
 	tmp_str = str;
-	while (endl && read(fd, str, 1))
+	while (endl)
 	{
+		c = read(fd, str, 1);
+		if (c == -1)
+			return (0);
 		if (*(str) != '\n' && endl < BUFFER_SIZE)
 			endl++;
 		else
