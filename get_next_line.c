@@ -6,7 +6,7 @@
 /*   By: mkaragoz <mkaragoz@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:37:21 by mkaragoz          #+#    #+#             */
-/*   Updated: 2022/11/10 03:52:27 by mkaragoz         ###   ########.fr       */
+/*   Updated: 2022/11/10 23:56:03 by mkaragoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ char	*get_next_line(int fd)
 	char		*tmp_str;
 
 	endl = 1;
-	if (!str)
-		str = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	//if (!str)
+	str = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!str || fd < 0)
 		return (0);
 	tmp_str = str;
 	while (endl)
 	{
 		c = read(fd, str, 1);
-		if (c == -1)
+		if (c <= 0)
 			return (0);
 		if (*(str) != '\n' && endl < BUFFER_SIZE)
 			endl++;
