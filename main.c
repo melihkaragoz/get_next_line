@@ -3,7 +3,7 @@
 int	main(void)
 {
 	int		fd;
-	char		*line;
+	char	*line;
 
 	fd = open("ff.txt",O_RDONLY);
 	line = get_next_line(fd);
